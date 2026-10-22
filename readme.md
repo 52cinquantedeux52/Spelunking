@@ -12,7 +12,7 @@ A Spring Boot application using Java 21, Maven, and PostgreSQL. Docker Compose s
 From the project root, run:
 
 ```bash
-docker-compose up
+docker compose up
 ```
 
 Compose builds the application image, starts PostgreSQL, waits for the database to become healthy, and then starts the application. On the first launch, building the image may take a few minutes.
