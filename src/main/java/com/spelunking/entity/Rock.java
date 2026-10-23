@@ -25,7 +25,7 @@ public class Rock {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    Column(nullable = false, length = 60)
+    @Column (nullable = false, length = 60)
     private String name;
 
     @Enumerated(EnumType.STRING)
