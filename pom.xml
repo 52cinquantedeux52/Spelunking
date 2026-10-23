@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.base</groupId>
-    <artifactId>baseSpringBoot</artifactId>
+    <artifactId>Spelunking</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>baseSpringBoot</name>
-    <description>baseSpringBoot</description>
+    <name>Spelunking</name>
+    <description>SpelunkingAPI</description>
     <url/>
     <licenses>
         <license/>

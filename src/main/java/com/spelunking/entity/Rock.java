@@ -1,4 +1,4 @@
-package com.basespringboot.entity;
+package com.spelunking.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
