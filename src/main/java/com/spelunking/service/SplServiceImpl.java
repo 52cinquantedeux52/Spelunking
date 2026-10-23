@@ -25,6 +25,7 @@ public class SplServiceImpl implements SplService {
         rock.setColor(rockDto.getColor());
         rock.setDiscoverPlace(rockDto.getDiscoverPlace());
         rock.setDescription(rockDto.getDescription());
+        rock.setOwner(rockDto.getOwner());
         return splRepository.save(rock);
     }
 
@@ -51,6 +52,7 @@ public class SplServiceImpl implements SplService {
         rock.setColor(rockDto.getColor());
         rock.setDiscoverPlace(rockDto.getDiscoverPlace());
         rock.setDescription(rockDto.getDescription());
+        rock.setOwner(rockDto.getOwner());
         return splRepository.save(rock);
     }
 
