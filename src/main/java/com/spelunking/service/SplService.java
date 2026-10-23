@@ -1,6 +1,7 @@
 package com.spelunking.service;
 
 import java.util.List;
+import com.spelunking.entity.*;
 
 public interface SplService {
 
