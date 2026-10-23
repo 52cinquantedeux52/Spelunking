@@ -1,6 +1,9 @@
-# baseSpringBoot
+# SpelunkingAPI
 
-A Spring Boot application using Java 21, Maven, and PostgreSQL. Docker Compose starts the application and its database together.
+An API based on Spring Boot using Java 21, Maven, and PostgreSQL. 
+Docker Compose starts the application and its database together.
+
+It's a game based on the collection of gemstones where a user mines for gems and manages a collection.
 
 ## Requirements
 
