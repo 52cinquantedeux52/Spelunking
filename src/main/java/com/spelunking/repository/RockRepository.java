@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.spelunking.entity.*;
 
 @Repository
-public interface SplRepository extends JpaRepository<Rock, Long> {
+public interface RockRepository extends JpaRepository<Rock, Long> {
 
 }

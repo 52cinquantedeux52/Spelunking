@@ -1,45 +1,77 @@
 package com.spelunking.controller;
 
-import com.spelunking.service.SplService;
+import com.spelunking.dto.MinerDto;
+import com.spelunking.dto.RockDto;
+import com.spelunking.entity.Miner;
+import com.spelunking.entity.Rock;
+import com.spelunking.service.*;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import java.util.List;
-import com.spelunking.entity.*;
 
-@RequestMapping("/rocks")
+import java.util.List;
+
+@RequestMapping("/")
 @RestController
 @RequiredArgsConstructor
 
 public class SplController {
-    private final SplService splService;
+    private final SplServiceImpl splService;
 
-    @PostMapping
+    @PostMapping("/rock")
     @ResponseStatus(HttpStatus.CREATED)
-    public Rock save(@Valid @RequestBody RockDto rock) {
-        return SplService.save(rock);
+    public Rock saveRock(@Valid @RequestBody RockDto rock) {
+        return splService.saveRock(rock);
     }
 
-    @GetMapping
-    public List<Rock> getAll() {
-        return splService.findAll();
+    @GetMapping("/rock")
+    public List<Rock> getAllRocks() {
+        return splService.findAllRocks();
     }
 
-    @GetMapping("/{id}")
-    public Rock getById(@PathVariable Long id) {
-        return splService.findById(id);
+    @GetMapping("/rock/{id}")
+    public Rock getRockById(@PathVariable Long id) {
+        return splService.findRockById(id);
     }
 
-    @PutMapping("/{id}")
-    public Rock update(@PathVariable Long id, @Valid @RequestBody RockDto rock) {
-        return splService.update(id, rock);
+    @PutMapping("/rock/{id}")
+    public Rock updateRock(@PathVariable Long id, @Valid @RequestBody RockDto rock) {
+        return splService.updateRock(id, rock);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/rock/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long id) {
-        splService.delete(id);
+    public void deleteRock(@PathVariable Long id) {
+        splService.deleteRock(id);
+    }
+
+    @PostMapping("/miner")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Miner saveMiner(@Valid @RequestBody MinerDto miner) {
+        return splService.saveMiner(miner);
+    }
+
+    @GetMapping("/miner")
+    public List<Miner> getAllMiners() {
+        return splService.findAllMiners();
+    }
+
+    @GetMapping("/miner/{id}")
+    public Miner getMinerById(@PathVariable Long id) {
+        return splService.findMinerById(id);
+    }
+
+    @PutMapping("/miner/{id}")
+    public Miner updateMiner(@PathVariable Long id, @Valid @RequestBody MinerDto miner) {
+        return splService.updateMiner(id, miner);
+    }
+
+    @DeleteMapping("/miner/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteMiner(@PathVariable Long id) {
+        splService.deleteMiner(id);
     }
 
 }
