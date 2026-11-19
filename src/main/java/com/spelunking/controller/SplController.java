@@ -16,7 +16,6 @@ import java.util.List;
 @RequestMapping("/api")
 @RestController
 @RequiredArgsConstructor
-
 public class SplController {
     private final SplServiceImpl splService;
 
