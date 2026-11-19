@@ -55,6 +55,7 @@ public class SplServiceImpl implements SplService {
         rock.setType(rockDto.type());
         rock.setMohsScale(rockDto.mohsScale());
         rock.setWeight(rockDto.weight());
+        rock.setReference(rockDto.reference());
         rock.setColor(rockDto.color());
         rock.setDiscoveredPlace(rockDto.discoveredPlace());
         rock.setDescription(rockDto.description());
@@ -71,7 +72,6 @@ public class SplServiceImpl implements SplService {
     @Override
     public Miner saveMiner(MinerDto minerDto) {
         Miner miner = new Miner();
-        miner.setId(minerDto.id());
         miner.setName(minerDto.name());
         return minerRepository.save(miner);
     }
@@ -89,15 +89,18 @@ public class SplServiceImpl implements SplService {
 
     @Override
     public Miner updateMiner(Long id, MinerDto minerDto) {
-        Miner miner = new Miner();
-        miner.setId(minerDto.id());
+        Miner miner = this.findMinerById(id);
         miner.setName(minerDto.name());
         return minerRepository.save(miner);
     }
 
     @Override
     public void deleteMiner(Long id) {
-        Miner miner = findMinerById(id);
+        Miner miner = this.findMinerById(id);
+        if (rockRepository.existsByOwnerId(id)) {
+            throw new ResponseStatusException(
+                    HttpStatus.CONFLICT, "This miner still owns rocks");
+        }
         minerRepository.delete(miner);
     }
 

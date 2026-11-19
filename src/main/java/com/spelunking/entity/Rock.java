@@ -52,6 +52,6 @@ public class Rock {
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "owner_id")
+    @JoinColumn(name = "owner_id", nullable = false)
     private Miner owner;
 }

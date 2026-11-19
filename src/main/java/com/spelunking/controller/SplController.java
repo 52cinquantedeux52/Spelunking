@@ -18,7 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 
 public class SplController {
-    private final SplServiceImpl splService;
+    private final SplService splService;
 
     @PostMapping("/rock")
     @ResponseStatus(HttpStatus.CREATED)
