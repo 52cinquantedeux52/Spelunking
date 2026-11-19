@@ -9,4 +9,4 @@ Our controller, SplController, gives entry access to our API.
 
 ## Ask before generating
 
-If the task doesn't specify, ask rather than guess:
+If the task doesn't specify, ask rather than guess.
