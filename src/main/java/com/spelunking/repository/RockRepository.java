@@ -6,5 +6,5 @@ import com.spelunking.entity.*;
 
 @Repository
 public interface RockRepository extends JpaRepository<Rock, Long> {
-
+    boolean existsByOwnerId(Long ownerId);
 }

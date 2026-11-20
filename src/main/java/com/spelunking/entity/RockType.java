@@ -2,7 +2,7 @@ package com.spelunking.entity;
 
 public enum RockType
 {
-    IGENOUS,// magmatique — solidification du magma
+    IGNEOUS,// magmatique — solidification du magma
     SEDIMENTARY,// sédimentaire — accumulation de sédiments
     METAMORPHIC// métamorphique — chaleur + pression
 }
