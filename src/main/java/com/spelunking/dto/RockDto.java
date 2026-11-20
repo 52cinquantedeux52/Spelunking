@@ -18,5 +18,5 @@ public record RockDto(
         @Size(max = 50) String color,
         @Size(max = 90) String discoveredPlace,
         @Size(max = 500) String description,
-        @NotNull Long ownerId) {
+         Long ownerId) {
 }

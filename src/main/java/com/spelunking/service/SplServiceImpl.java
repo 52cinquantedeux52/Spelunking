@@ -31,8 +31,9 @@ public class SplServiceImpl implements SplService {
         rock.setColor(rockDto.color());
         rock.setDiscoveredPlace(rockDto.discoveredPlace());
         rock.setDescription(rockDto.description());
-        rock.setOwner( this.findMinerById(rockDto.ownerId()) );
-        return rockRepository.save(rock);
+        rock.setOwner(rockDto.ownerId() == null
+                ? null
+                : findMinerById(rockDto.ownerId()));        return rockRepository.save(rock);
     }
 
     @Override
@@ -58,8 +59,9 @@ public class SplServiceImpl implements SplService {
         rock.setColor(rockDto.color());
         rock.setDiscoveredPlace(rockDto.discoveredPlace());
         rock.setDescription(rockDto.description());
-        rock.setOwner( this.findMinerById(rockDto.ownerId()) );
-        return rockRepository.save(rock);
+        rock.setOwner(rockDto.ownerId() == null
+                ? null
+                : findMinerById(rockDto.ownerId()));        return rockRepository.save(rock);
     }
 
     @Override
@@ -103,6 +105,11 @@ public class SplServiceImpl implements SplService {
         rocks.forEach(rock -> rock.setOwner(null));
         rockRepository.saveAll(rocks);
         minerRepository.delete(miner);
+    }
+    @Override
+    public List<Rock> findRocksByMinerId(Long minerId) {
+        findMinerById(minerId);
+        return rockRepository.findByOwnerId(minerId);
     }
 
 }

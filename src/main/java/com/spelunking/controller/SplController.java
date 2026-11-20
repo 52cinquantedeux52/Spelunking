@@ -66,6 +66,10 @@ public class SplController {
     public Miner updateMiner(@PathVariable Long id, @Valid @RequestBody MinerDto miner) {
         return splService.updateMiner(id, miner);
     }
+    @GetMapping("/miner/{id}/rocks")
+    public List<Rock> getRocksByMiner(@PathVariable Long id) {
+        return splService.findRocksByMinerId(id);
+    }
 
     @DeleteMapping("/miner/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
