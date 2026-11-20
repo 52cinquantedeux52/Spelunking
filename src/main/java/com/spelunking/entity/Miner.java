@@ -9,6 +9,11 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity
 @Table(name = "miners")
@@ -23,4 +28,7 @@ public class Miner {
 
     @Column(nullable = false, unique = true, length = 30)
     private String name;
+    @JsonIgnore
+    @OneToMany(mappedBy = "owner")
+    private List<Rock> rocks = new ArrayList<>();
 }
