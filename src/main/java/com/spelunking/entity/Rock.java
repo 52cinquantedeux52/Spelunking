@@ -51,7 +51,7 @@ public class Rock {
     private String description;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "owner_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "owner_id",nullable = true)
     private Miner owner;
 }

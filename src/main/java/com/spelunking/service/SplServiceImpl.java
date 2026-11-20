@@ -98,6 +98,10 @@ public class SplServiceImpl implements SplService {
     @Override
     public void deleteMiner(Long id) {
         Miner miner = findMinerById(id);
+        List<Rock> rocks = rockRepository.findByOwnerId(id);
+
+        rocks.forEach(rock -> rock.setOwner(null));
+        rockRepository.saveAll(rocks);
         minerRepository.delete(miner);
     }
 
